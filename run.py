@@ -23,15 +23,18 @@ driver = webdriver.Chrome(chrome_options=chrome_options,
 def download_data(link):
     """ This function will download file from given link. Used to looping"""
     driver.get(link)
-    time.sleep(5)
+    time.sleep(3)
     driver.find_element_by_xpath("//a[@class='btn btn-danger']").click()
     pass
 
-def rename(name):
+def rename(province_code, city_code):
+    os.rename(r'/home/eraldds/Downloads/CAPAIAN NILAI UJIAN NASIONAL SMP TAHUN AJARAN 2018-2019_ .xlsx', r'/home/eraldds/Downloads/{}-{}-smp.xlsx'.format(province_code,city_code))
     pass
     # Name = /home/eraldds/Downloads/CAPAIAN NILAI UJIAN NASIONAL SMP TAHUN AJARAN 2018-2019_ .xlsx
     # os.rename(r'C:\Users\Ron\Desktop\Test\Products.txt',r'C:\Users\Ron\Desktop\Test\Shipped Products.txt')
 
 # Mulai operasi
 download_data(link)
+time.sleep(10)
+rename("01", "01")
 
